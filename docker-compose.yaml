@@ -1,0 +1,92 @@
+version: "3.8"
+services:
+  www-marketing:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.www-marketing.rule=Host(`localhost`)"
+      - "traefik.http.services.www-marketing.loadbalancer.server.port=3000"
+    env_file:
+      - ../../environment/dev.env.local
+    volumes:
+      - ../../apps/www-marketing/src:/app/src
+
+  www-account:
+    build:
+      context: ../../apps/www-account
+      dockerfile: Dockerfile.dev
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.www-account.rule=Host(`account.localhost`)"
+      - "traefik.http.services.www-account.loadbalancer.server.port=3000"
+    env_file:
+      - ../../environment/dev.env.local
+    volumes:
+      - ../../apps/www-account/src:/app/src
+
+  www-wds-ui:
+    build:
+      context: ../../apps/www-wds-ui
+      dockerfile: Dockerfile.dev
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.www-wds-ui.rule=Host(`wds.ui.localhost`)"
+      - "traefik.http.services.www-wds-ui.loadbalancer.server.port=3000"
+    env_file:
+      - ../../environment/dev.env.local
+    volumes:
+      - ../../apps/www-wds-ui/src:/app/src
+
+  www-workspace:
+    build:
+      context: ../../apps/www-workspace
+      dockerfile: Dockerfile.dev
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.www-workspace.rule=Host(`workspace.localhost`)"
+      - "traefik.http.services.www-workspace.loadbalancer.server.port=3000"
+    env_file:
+      - ../../environment/dev.env.local
+    volumes:
+      - ../../apps/www-workspace/src:/app/src
+
+networks:
+  app-workspace-network:
+    name: app-workspace-network
+
+  frontend:
+    name: frontend
