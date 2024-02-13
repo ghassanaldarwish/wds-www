@@ -24,7 +24,6 @@ import FullscreenViewToggle from "./features/buttons/fullscreen-view-toggle";
 import Slides from "./features/slides";
 import Messages from "./features/messages";
 import { EndCurrentMeeting } from "./features/buttons/end-current-meeting";
-import Scene from "./features/scene";
 import TeamButton from "./features/buttons/team-button";
 import MemberRegisterForm from "./features/forms/member-register-form";
 import CreateWorkspaceForm from "./features/forms/create-workspace-form";
@@ -100,7 +99,6 @@ ViewRoot.Workspaces = Workspaces;
 ViewRoot.PinsToolbar = PinsToolbar;
 ViewRoot.WorkspacesToolbar = WorkspacesToolbar;
 
-ViewRoot.Scene = Scene;
 ViewRoot.CreateWorkspaceForm = CreateWorkspaceForm;
 ViewRoot.CreatePinForm = CreatePinForm;
 

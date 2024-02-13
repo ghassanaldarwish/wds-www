@@ -9,6 +9,7 @@ import { AuthProvider } from "@/context/auth-context";
 //
 
 export const metadata: Metadata = {
+  referrer: "origin",
   title: "WDPS",
   description: "Web drei pins. Create flexible and powerful presentations.",
   generator: "Next.js",
@@ -22,9 +23,10 @@ export const metadata: Metadata = {
   ],
 
   themeColor: "#005cc5",
+
   icons: [
     { rel: "apple-touch-icon", url: "/icon-128x128.png" },
-    { rel: "icon", url: "/icon-128x128.png" },
+    { rel: "icon", url: "/logo.png" },
   ],
   appleWebApp: {
     capable: true,
