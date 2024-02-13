@@ -1,12 +1,8 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
-  content: [
-    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-
-    "./node_modules/@wds-ui/**/*.{js,jsx,ts,tsx,html}",
-  ],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  important: true,
   theme: {
     container: {
       center: true,
@@ -18,12 +14,15 @@ const config: Config = {
     extend: {
       colors: {
         border: "hsl(var(--border))",
+        live: "hsl(var(--live))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
+          dark: "hsl(var(--primary-dark))",
+
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -58,12 +57,12 @@ const config: Config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
+          from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          to: { height: 0 },
         },
       },
       animation: {
@@ -78,4 +77,3 @@ const config: Config = {
     require("@tailwindcss/aspect-ratio"),
   ],
 };
-export default config;

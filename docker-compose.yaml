@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  www-marketing:
+  wds-www:
     build:
       context: ./
       dockerfile: Dockerfile.dev
@@ -14,79 +14,237 @@ services:
       - WDS_SOCKET_PORT=0
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.www-marketing.rule=Host(`localhost`)"
-      - "traefik.http.services.www-marketing.loadbalancer.server.port=3000"
+      - "traefik.http.routers.app-marketing.rule=Host(`marketing.localhost`)"
+      - "traefik.http.services.app-marketing.loadbalancer.server.port=3000"
     env_file:
       - ../../environment/dev.env.local
-    volumes:
-      - ../../apps/www-marketing/src:/app/src
 
-  www-account:
-    build:
-      context: ../../apps/www-account
-      dockerfile: Dockerfile.dev
-    restart: on-failure
-    networks:
-      - app-workspace-network
-      - frontend
-    environment:
-      - IS_DOCKER=true
-      - CHOKIDAR_USEPOLLING=true
-      - WDS_SOCKET_PORT=0
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.www-account.rule=Host(`account.localhost`)"
-      - "traefik.http.services.www-account.loadbalancer.server.port=3000"
-    env_file:
-      - ../../environment/dev.env.local
-    volumes:
-      - ../../apps/www-account/src:/app/src
+  # app-workspace-frontend:
+  #   build:
+  #     context: ../../apps/workspace-frontend
+  #     dockerfile: Dockerfile.dev
+  #   restart: on-failure
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #   environment:
+  #     - IS_DOCKER=true
+  #     - CHOKIDAR_USEPOLLING=true
+  #     - WDS_SOCKET_PORT=0
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.app-workspace-frontend.rule=Host(`workspace.localhost`)"
+  #     - "traefik.http.services.app-workspace-frontend.loadbalancer.server.port=5173"
+  #   env_file:
+  #     - ../../environment/dev.env.local
 
-  www-wds-ui:
-    build:
-      context: ../../apps/www-wds-ui
-      dockerfile: Dockerfile.dev
-    restart: on-failure
-    networks:
-      - app-workspace-network
-      - frontend
-    environment:
-      - IS_DOCKER=true
-      - CHOKIDAR_USEPOLLING=true
-      - WDS_SOCKET_PORT=0
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.www-wds-ui.rule=Host(`wds.ui.localhost`)"
-      - "traefik.http.services.www-wds-ui.loadbalancer.server.port=3000"
-    env_file:
-      - ../../environment/dev.env.local
-    volumes:
-      - ../../apps/www-wds-ui/src:/app/src
+  # app-docs:
+  #   build:
+  #     context: ../../apps/docs
+  #     dockerfile: Dockerfile.dev
+  #   restart: on-failure
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #   environment:
+  #     - IS_DOCKER=true
+  #     - CHOKIDAR_USEPOLLING=true
+  #     - WDS_SOCKET_PORT=0
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.app-docs.rule=Host(`docs.localhost`)"
+  #     - "traefik.http.services.app-docs.loadbalancer.server.port=3000"
+  #   env_file:
+  #     - ../../environment/dev.env.local
+  #   volumes:
+  #     - ../../apps/docs/app:/app/app
+  # app-www:
+  #   build:
+  #     context: ../../apps/www
+  #     dockerfile: Dockerfile.dev
 
-  www-workspace:
-    build:
-      context: ../../apps/www-workspace
-      dockerfile: Dockerfile.dev
-    restart: on-failure
-    networks:
-      - app-workspace-network
-      - frontend
-    environment:
-      - IS_DOCKER=true
-      - CHOKIDAR_USEPOLLING=true
-      - WDS_SOCKET_PORT=0
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.www-workspace.rule=Host(`workspace.localhost`)"
-      - "traefik.http.services.www-workspace.loadbalancer.server.port=3000"
-    env_file:
-      - ../../environment/dev.env.local
-    volumes:
-      - ../../apps/www-workspace/src:/app/src
+  #   ports:
+  #     - 3000:3000
+
+  #   restart: on-failure
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #   environment:
+  #     - IS_DOCKER=true
+  #     - CHOKIDAR_USEPOLLING=true
+  #     - WDS_SOCKET_PORT=0
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.app-www.rule=Host(`localhost`)"
+  #     - "traefik.http.services.app-www.loadbalancer.server.port=3000"
+  #   env_file:
+  #     - ../../environment/dev.env.local
+  #   volumes:
+  #     - ../../apps/www/app:/app/app
+  #     - ../../apps/www/components:/app/components
+  #     - ../../apps/www/infrastructure:/app/infrastructure
+  #     - ../../apps/www/context:/app/context
+  #     - ../../apps/www/hooks:/app/hooks
+  #     - ../../apps/www/store:/app/store
+
+  #     - ../../apps/www/lib:/app/lib
+  #     - ../../apps/www/services:/app/services
+  #     - ../../apps/www/styles:/app/styles
+  #     - ../../apps/www/public:/app/public
+
+  # auth-api:
+  #   build:
+  #     context: ../../apps/auth
+  #     dockerfile: Dockerfile.dev
+
+  #   env_file:
+  #     - ../../environment/dev.env
+  #   volumes:
+  #     - ../../apps/auth/src:/app/src
+  #     - /app/node_modules
+  #   environment:
+  #     - PORT=3013
+  #     - NODE_ENV=development
+  #     - DB_NAME=auth
+  #     - ROLE=admin
+  #     - CACHE_HOST=api-cache
+  #     - DB_URI=mongodb://api-db
+  #     - SERVICE_NAME=auth
+  #     - KAFKA_BROKER_LISTENER=kafka:9092
+  #   restart: on-failure
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.auth-api.rule=Host(`api.auth.localhost`)"
+  #     - "traefik.http.services.auth-api.loadbalancer.server.port=3013"
+
+  # users-api:
+  #   build:
+  #     context: ../../apps/users
+  #     dockerfile: Dockerfile.dev
+
+  #   env_file:
+  #     - ../../environment/dev.env
+  #   volumes:
+  #     - /Users/ghassanaldarwish/Desktop/wds/file-system/users:/app/public
+  #     - ../../apps/users/src:/app/src
+  #     - /app/node_modules
+  #   environment:
+  #     - PORT=3014
+  #     - NODE_ENV=development
+  #     - DB_NAME=users
+  #     - ROLE=admin
+  #     - CACHE_HOST=api-cache
+  #     - DB_URI=mongodb://api-db
+  #     - SERVICE_NAME=users
+  #     - KAFKA_BROKER_LISTENER=kafka:9092
+  #   restart: on-failure
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.users-api.rule=Host(`api.users.localhost`)"
+  #     - "traefik.http.services.users-api.loadbalancer.server.port=3014"
+
+  # workspaces-api:
+  #   build:
+  #     context: ../../apps/workspaces
+  #     dockerfile: Dockerfile.dev
+  #   env_file:
+  #     - ../../environment/dev.env
+  #   environment:
+  #     - PORT=3017
+  #     - NODE_ENV=development
+  #     - DB_NAME=workspaces
+  #     - SERVICE_NAME=workspaces
+  #     - CACHE_HOST=api-cache
+  #     - KAFKA_BROKER_LISTENER=kafka:9092
+  #     - ROLE=admin
+  #     - DB_URI=mongodb://api-db
+  #   volumes:
+  #     - ../../apps/workspaces/src:/app/src
+  #     - /app/node_modules
+  #   restart: on-failure
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.workspaces-api.rule=Host(`api.workspaces.localhost`)"
+  #     - "traefik.http.services.workspaces-api.loadbalancer.server.port=3017"
+
+  # code-zilla-api:
+  #   build:
+  #     dockerfile: Dockerfile.dev
+  #     context: ../../apps/workspace-backend
+  #   container_name: code-zilla-api
+  #   volumes:
+  #     - ../../apps/workspace-backend/src:/app/src
+  #     - /app/node_modules
+  #     - /Users/ghassanaldarwish/Desktop/wds/file-system/workspaces/code-zilla:/app/files
+
+  #   environment:
+  #     - PORT=4444
+  #     - ORIGIN=http://localhost
+  #     - NODE_ENV=development
+  #     - DB_NAME=code-zilla
+  #     - ROLE=admin
+  #     - CACHE_HOST=code-zilla-cache
+  #     - SERVICE_NAME=code-zilla
+  #     - DB_URI=mongodb://workspace-db
+  #     - KAFKA_BROKER_LISTENER=kafka:9092
+  #     - JWT_SECRET=JWT_ACCESS_SECRET
+  #     - JWT_SECRET_SOCKET=JWT_SECRET_SOCKET
+  #     - HOST=localhost
+  #   restart: on-failure
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.code-zilla-api.rule=Host(`code-zilla.api.workspace.localhost`)"
+  #     - "traefik.http.services.code-zilla-api.loadbalancer.server.port=4444"
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+
+  # code-zilla-vscode:
+  #   image: "ghassanaldarwish/vscode"
+  #   container_name: code-zilla-vscode
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Etc/UTC
+  #     - SUDO_PASSWORD=pass
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.code-zilla-vscode.rule=Host(`code-zilla.vscode.localhost`)"
+  #     - "traefik.http.routers.code-zilla-vscode.middlewares=code-zilla-vscode-basicauth"
+  #     - "traefik.http.middlewares.code-zilla-vscode-basicauth.basicauth.users=code-zilla:$$2y$$05$$sVFlSlpAMQhSCUC641U0muxqyAvUJ0nsH.6F8Q/RHQAPqUpKVFA6a"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - /Users/ghassanaldarwish/Desktop/wds/file-system/workspaces/code-zilla/vscode:/config
+  #   networks:
+  #     - app-workspace-network
+  #     - frontend
+  #  htpasswd -nbB code-zilla "code-zilla"
+  # code-zilla:$2y$05$sVFlSlpAMQhSCUC641U0muxqyAvUJ0nsH.6F8Q/RHQAPqUpKVFA6a
+
+  # code-zilla-cache:
+  #   image: redis:6.2-alpine
+  #   restart: always
+  #   volumes:
+  #     - cache-code-zilla:/data
+  #   networks:
+  #     - app-workspace-network
 
 networks:
   app-workspace-network:
-    name: app-workspace-network
+    external: true
 
   frontend:
-    name: frontend
+    external: true
+# volumes:
+#   cache-code-zilla:
+#     driver: local
