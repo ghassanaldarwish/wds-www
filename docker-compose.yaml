@@ -17,8 +17,7 @@ services:
       - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
     env_file:
       - ./.env.local
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+
   # app-workspace-frontend:
   #   build:
   #     context: ../../apps/workspace-frontend
@@ -241,10 +240,10 @@ services:
 
 networks:
   app-workspace-network:
-    external: true
+    name: app-workspace-network
 
   frontend:
-    external: true
+    name: frontend
 # volumes:
 #   cache-code-zilla:
 #     driver: local
