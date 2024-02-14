@@ -13,7 +13,7 @@ services:
       - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-www.rule=Host(`192.168.178.27`)"
+      - "traefik.http.routers.wds-www.rule=Host(`localhost`)"
       - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
     env_file:
       - ./.env.local
