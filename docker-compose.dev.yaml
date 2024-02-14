@@ -1,7 +1,9 @@
 version: "3.8"
 services:
   wds-www:
-    image: "ghassanaldarwish/wds-www"
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
     restart: on-failure
     networks:
       - app-workspace-network
@@ -10,13 +12,23 @@ services:
       - IS_DOCKER=true
       - CHOKIDAR_USEPOLLING=true
       - WDS_SOCKET_PORT=0
-      - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-www.rule=Host(`192.168.178.27`)"
-      - "traefik.http.services.wds-www.loadbalancer.server.port=80"
+      - "traefik.http.routers.wds-www.rule=Host(`localhost`)"
+      - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
     env_file:
       - ./.env.local
+    volumes:
+      - ./app:/app/app
+      - ./components:/app/components
+      - ./infrastructure:/app/infrastructure
+      - ./context:/app/context
+      - ./hooks:/app/hooks
+      - ./store:/app/store
+      - ./lib:/app/lib
+      - ./services:/app/services
+      - ./styles:/app/styles
+      - ./public:/app/public
 
   # app-workspace-frontend:
   #   build:
@@ -92,89 +104,89 @@ services:
   #     - ../../apps/www/styles:/app/styles
   #     - ../../apps/www/public:/app/public
 
-  # auth-api:
-  #   build:
-  #     context: ../api-auth
-  #     dockerfile: Dockerfile.dev
+  auth-api:
+    build:
+      context: ../api-auth
+      dockerfile: Dockerfile.dev
 
-  #   env_file:
-  #     - ../environment/dev.env
-  #   volumes:
-  #     - ../api-auth/src:/app/src
-  #     - /app/node_modules
-  #   environment:
-  #     - PORT=3013
-  #     - NODE_ENV=development
-  #     - DB_NAME=auth
-  #     - ROLE=admin
-  #     - CACHE_HOST=api-cache
-  #     - DB_URI=mongodb://api-db
-  #     - SERVICE_NAME=auth
-  #     - KAFKA_BROKER_LISTENER=kafka:9092
-  #   restart: on-failure
-  #   networks:
-  #     - app-workspace-network
-  #     - frontend
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.auth-api.rule=Host(`api.auth.localhost`)"
-  #     - "traefik.http.services.auth-api.loadbalancer.server.port=3013"
+    env_file:
+      - ../environment/dev.env
+    volumes:
+      - ../api-auth/src:/app/src
+      - /app/node_modules
+    environment:
+      - PORT=3013
+      - NODE_ENV=development
+      - DB_NAME=auth
+      - ROLE=admin
+      - CACHE_HOST=api-cache
+      - DB_URI=mongodb://api-db
+      - SERVICE_NAME=auth
+      - KAFKA_BROKER_LISTENER=kafka:9092
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.auth-api.rule=Host(`api.auth.localhost`)"
+      - "traefik.http.services.auth-api.loadbalancer.server.port=3013"
 
-  # users-api:
-  #   build:
-  #     context: ../api-users
-  #     dockerfile: Dockerfile.dev
+  users-api:
+    build:
+      context: ../api-users
+      dockerfile: Dockerfile.dev
 
-  #   env_file:
-  #     - ../environment/dev.env
-  #   volumes:
-  #     - /Users/ghassanaldarwish/Desktop/wds-cluster/file-system/users:/app/public
-  #     - ../api-users/src:/app/src
-  #     - /app/node_modules
-  #   environment:
-  #     - PORT=3014
-  #     - NODE_ENV=development
-  #     - DB_NAME=users
-  #     - ROLE=admin
-  #     - CACHE_HOST=api-cache
-  #     - DB_URI=mongodb://api-db
-  #     - SERVICE_NAME=users
-  #     - KAFKA_BROKER_LISTENER=kafka:9092
-  #   restart: on-failure
-  #   networks:
-  #     - app-workspace-network
-  #     - frontend
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.users-api.rule=Host(`api.users.localhost`)"
-  #     - "traefik.http.services.users-api.loadbalancer.server.port=3014"
+    env_file:
+      - ../environment/dev.env
+    volumes:
+      - /Users/ghassanaldarwish/Desktop/wds-cluster/file-system/users:/app/public
+      - ../api-users/src:/app/src
+      - /app/node_modules
+    environment:
+      - PORT=3014
+      - NODE_ENV=development
+      - DB_NAME=users
+      - ROLE=admin
+      - CACHE_HOST=api-cache
+      - DB_URI=mongodb://api-db
+      - SERVICE_NAME=users
+      - KAFKA_BROKER_LISTENER=kafka:9092
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.users-api.rule=Host(`api.users.localhost`)"
+      - "traefik.http.services.users-api.loadbalancer.server.port=3014"
 
-  # workspaces-api:
-  #   build:
-  #     context: ../api-workspaces
-  #     dockerfile: Dockerfile.dev
-  #   env_file:
-  #     - ../environment/dev.env
-  #   environment:
-  #     - PORT=3017
-  #     - NODE_ENV=development
-  #     - DB_NAME=workspaces
-  #     - SERVICE_NAME=workspaces
-  #     - CACHE_HOST=api-cache
-  #     - KAFKA_BROKER_LISTENER=kafka:9092
-  #     - ROLE=admin
-  #     - DB_URI=mongodb://api-db
-  #   volumes:
-  #     - ../api-workspaces/src:/app/src
-  #     - /app/node_modules
-  #   restart: on-failure
-  #   networks:
-  #     - app-workspace-network
-  #     - frontend
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.workspaces-api.rule=Host(`api.workspaces.localhost`)"
-  #     - "traefik.http.services.workspaces-api.loadbalancer.server.port=3017"
+  workspaces-api:
+    build:
+      context: ../api-workspaces
+      dockerfile: Dockerfile.dev
+    env_file:
+      - ../environment/dev.env
+    environment:
+      - PORT=3017
+      - NODE_ENV=development
+      - DB_NAME=workspaces
+      - SERVICE_NAME=workspaces
+      - CACHE_HOST=api-cache
+      - KAFKA_BROKER_LISTENER=kafka:9092
+      - ROLE=admin
+      - DB_URI=mongodb://api-db
+    volumes:
+      - ../api-workspaces/src:/app/src
+      - /app/node_modules
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.workspaces-api.rule=Host(`api.workspaces.localhost`)"
+      - "traefik.http.services.workspaces-api.loadbalancer.server.port=3017"
 
   # code-zilla-api:
   #   build:
