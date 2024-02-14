@@ -140,7 +140,7 @@ services:
     env_file:
       - ../environment/dev.env
     volumes:
-      - /Users/ghassanaldarwish/Desktop/wds-cluster/file-system/users:/app/public
+      #- /Users/ghassanaldarwish/Desktop/wds-cluster/file-system/users:/app/public
       - ../api-users/src:/app/src
       - /app/node_modules
     environment:
