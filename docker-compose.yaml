@@ -1,8 +1,7 @@
-version: "3.8"
+version: "2"
 services:
   wds-www:
-    image: "ghassanaldarwish/wds-www:latest"
-    platform: linux/arm64
+    image: "ghassanaldarwish/wds-www"
     restart: on-failure
     networks:
       - app-workspace-network
