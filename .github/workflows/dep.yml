@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build -t ghassanaldarwish/wds-www .
+        run: docker build --platform=linux/amd64 -t ghassanaldarwish/wds-www .
 
       - name: Login Docker Hub
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
