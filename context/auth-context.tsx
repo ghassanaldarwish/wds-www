@@ -12,10 +12,10 @@ const AuthProvider = ({ children }: any) => {
 
   const userQuery: any = useUser();
 
-  if (userQuery.data) {
-    if (activeWorkspace) redirect(`/library/${activeWorkspace}`);
-    else redirect("/workspaces");
-  }
+  // if (userQuery.data) {
+  //   if (activeWorkspace) redirect(`/library/${activeWorkspace}`);
+  //   else redirect("/workspaces");
+  // }
 
   return <Context.Provider value={null}>{children}</Context.Provider>;
 };

@@ -1,6 +1,6 @@
-version: "2"
+version: "3.8"
 services:
-  wds-www:
+  wds-www-pre-prod:
     image: "ghassanaldarwish/wds-www"
     restart: on-failure
     networks:
@@ -13,8 +13,8 @@ services:
       - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-www.rule=Host(`localhost`)"
-      - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
+      - "traefik.http.routers.wds-www-pre-prod.rule=Host(`localhost`)"
+      - "traefik.http.services.wds-www-pre-prod.loadbalancer.server.port=3000"
     env_file:
       - ./.env.local
 

@@ -13,6 +13,7 @@ export const options: NextAuthOptions = {
     //   error: "/auth/error", // Error code passed in query string as ?error=
     //   verifyRequest: "/auth/verify-request", // (used for check email message)
   },
+  // Extend your configuration with cookie settings
 
   session: {
     strategy: "jwt",

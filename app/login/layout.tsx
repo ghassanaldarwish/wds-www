@@ -7,8 +7,8 @@ import { TailwindIndicator } from "@/components/ui/tailwind-indicator";
 import AuthProvider from "@/context/auth";
 
 export const metadata: Metadata = {
-  title: "WDPS",
-  description: "Web drei pins. Create flexible and powerful presentations.",
+  title: "WDP",
+  description: "Login page",
   generator: "Next.js",
   manifest: "/manifest.json",
   authors: [
