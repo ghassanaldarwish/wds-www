@@ -22,16 +22,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-
-                // Start SSH agent and add key
+                // Execute the ansible playbook
                 sh """
                 echo "Starting SSH Agent and adding key..."
                 eval \$(ssh-agent -s) > /dev/null
                 ssh-add /usr/.ssh/ansible
-                """
-
-                // Execute the ansible playbook
-                sh """
                 ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible ansible.yaml
                 """
             }
