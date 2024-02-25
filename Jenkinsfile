@@ -24,8 +24,7 @@ pipeline {
                 echo 'Deploying...'
                 // Execute the ansible tasks from .PHONY target
                 sh """
-                cd ansible/03-wds-www && \
-                ansible-playbook -i ../inventory --key-file /usr/.ssh/ansible main.yaml 
+                ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible absible.yaml 
                 """
             }
         }

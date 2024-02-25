@@ -1,22 +1,24 @@
 ---
-- name: publish wds-www - production
+- name: Clone the Github repo and setup wds-www project
   hosts: wds
-  become: yes # Use sudo
+  become: yes
   vars:
-    destination: "/root/projects"
-    project_name: "wds"
-    repo_url: "git@github.com:Ghassanooooo/wds.git"
+    repo_url: "git@github.com:ghassanaldarwish/wds-www.git"
+    destination: "/root/projects/wds-cluster"
+    project_name: "wds-www"
     GIT_BRANCH: main
   tasks:
     - name: Ensure that git is installed
       ansible.builtin.package:
         name: git
         state: present
-    - name: Ensure directorie exist
+
+    - name: Ensure directory exists
       ansible.builtin.file:
         path: "{{ destination }}/{{ project_name }}"
         state: directory
         mode: "0755"
+
     - name: Check if the repository is already cloned
       ansible.builtin.stat:
         path: "{{ destination }}/{{ project_name }}/.git"
@@ -40,12 +42,24 @@
         force: yes
       when: git_repo.stat.exists
 
-    - name: Pull the latest images
-      ansible.builtin.command:
-        cmd: docker-compose -f "{{ destination }}/{{ project_name }}/production/www-wds-ui/docker-compose.wds.ui.yaml" pull
-        chdir: "{{ destination }}/{{ project_name }}/production/www-wds-ui"
+    - name: Check if the .env.local file exists
+      ansible.builtin.stat:
+        path: "{{ destination }}/{{ project_name }}/.env.local"
+      register: env_local_file
 
-    - name: Run Docker Compose to start wds.ui.webdrei.com site
+    - name: Create .env.local file if not exist
+      ansible.builtin.copy:
+        content: |
+          # Your .env.local file content here
+        dest: "{{ destination }}/{{ project_name }}/.env.local"
+      when: not env_local_file.stat.exists
+
+    - name: Pull the latest images wds-www
       ansible.builtin.command:
-        cmd: docker-compose -f "{{ destination }}/{{ project_name }}/production/www-wds-ui/docker-compose.wds.ui.yaml" up -d --build
-        chdir: "{{ destination }}/{{ project_name }}/production/www-wds-ui"
+        cmd: docker-compose -f "{{ destination }}/{{ project_name }}/docker-compose.yaml" pull
+        chdir: "{{ destination }}/{{ project_name }}"
+
+    - name: Run Docker Compose to start webdrei.com site
+      ansible.builtin.command:
+        cmd: docker-compose -f "{{ destination }}/{{ project_name }}/docker-compose.yaml" up -d --build
+        chdir: "{{ destination }}/{{ project_name }}"
