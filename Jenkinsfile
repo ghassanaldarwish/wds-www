@@ -26,7 +26,7 @@ pipeline {
                 sh """
                 echo "Starting SSH Agent and adding key..." && \
                 eval $(ssh-agent -s) > /dev/null && \
-                ssh-add ~/.ssh/ansible && \
+                ssh-add /usr/.ssh/ansible && \
                 ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible ansible.yaml 
                 """
             }
