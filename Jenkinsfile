@@ -1,11 +1,17 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_USERNAME = credentials('DOCKER_USERNAME')
+    }
+
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo "DOCKER_USERNAME=${DOCKER_USERNAME}" > .env
+                script {
+                    sh "echo 'DOCKER_USERNAME=${DOCKER_USERNAME}' > .env"
+                }
             }
         }
         stage('Test') {
