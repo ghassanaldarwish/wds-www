@@ -24,7 +24,7 @@ pipeline {
                 echo 'Deploying...'
                 // Execute the ansible tasks from .PHONY target
                 sh """
-                ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible absible.yaml 
+                ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible ansible.yaml 
                 """
             }
         }
