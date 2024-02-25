@@ -30,6 +30,7 @@
         dest: "{{ destination }}/{{ project_name }}"
         version: "{{ GIT_BRANCH }}"
         accept_hostkey: yes
+        key_file: /usr/.ssh/ansible
       when: not git_repo.stat.exists
 
     - name: Pull updates from the repository if it is already cloned
