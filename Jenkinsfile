@@ -24,7 +24,7 @@ pipeline {
                 echo 'Deploying...'
                 // Execute the ansible tasks from .PHONY target
                 sh """
-                echo "Starting SSH Agent and adding key..." && \
+                echo 'Starting SSH Agent and adding key...' && \
                 eval $(ssh-agent -s) > /dev/null && \
                 ssh-add /usr/.ssh/ansible && \
                 ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible ansible.yaml 
