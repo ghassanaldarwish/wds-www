@@ -27,7 +27,7 @@ pipeline {
                 sh """
                 echo "Starting SSH Agent and adding key..."
                 eval \$(ssh-agent -s) > /dev/null
-                ssh-add /home/ghassan/.ssh/ansible
+                ssh-add /usr/.ssh/ansible
                 """
 
                 // Execute the ansible playbook
