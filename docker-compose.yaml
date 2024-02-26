@@ -1,4 +1,5 @@
 version: "3.8"
+# commands url http://host.docker.internal:6777
 services:
   wds-www-nginx:
     restart: always
