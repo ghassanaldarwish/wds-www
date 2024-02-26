@@ -30,7 +30,6 @@
         dest: "{{ destination }}/{{ project_name }}"
         version: "{{ GIT_BRANCH }}"
         accept_hostkey: yes
-        key_file: /usr/.ssh/ansible
       when: not git_repo.stat.exists
 
     - name: Pull updates from the repository if it is already cloned
@@ -42,18 +41,6 @@
         update: yes
         force: yes
       when: git_repo.stat.exists
-
-    - name: Check if the .env.local file exists
-      ansible.builtin.stat:
-        path: "{{ destination }}/{{ project_name }}/.env.local"
-      register: env_local_file
-
-    - name: Create .env.local file if not exist
-      ansible.builtin.copy:
-        content: |
-          # Your .env.local file content here
-        dest: "{{ destination }}/{{ project_name }}/.env.local"
-      when: not env_local_file.stat.exists
 
     - name: Pull the latest images wds-www
       ansible.builtin.command:

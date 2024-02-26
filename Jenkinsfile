@@ -24,10 +24,7 @@ pipeline {
                 echo 'Deploying...'
                 // Execute the ansible playbook
                 sh """
-                echo "Starting SSH Agent and adding key..."
-                eval \$(ssh-agent -s) > /dev/null
-                ssh-add /usr/.ssh/ansible
-                ansible-playbook -i /usr/inventory --key-file /usr/.ssh/ansible ansible.yaml
+                ansible-playbook -i /usr/inventory --key-file /usr/.ssh/id_ed25519 ansible.yaml
                 """
             }
         }
