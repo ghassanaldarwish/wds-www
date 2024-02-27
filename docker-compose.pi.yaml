@@ -1,0 +1,30 @@
+version: "3.8"
+# commands url http://host.docker.internal:6777
+services:
+  wds-www-nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    networks:
+      - wds-www-nginx-network
+    ports:
+      - "8090:80"
+
+  wds-www:
+    image: "ghassanaldarwish/wds-www"
+    restart: on-failure
+    networks:
+      - wds-www-nginx-network
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+      - NODE_ENV=production
+
+    env_file:
+      - ../environment/wds-www/.env.local
+
+networks:
+  wds-www-nginx-network:
+    name: wds-www-nginx-network
