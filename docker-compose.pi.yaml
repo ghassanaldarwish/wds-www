@@ -1,15 +1,38 @@
 version: "3.8"
 # commands url http://host.docker.internal:6777
 services:
-  wds-www-nginx:
+  wds-www-traefik:
+    image: "traefik:latest"
+    container_name: traefik
     restart: always
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
-    networks:
-      - wds-www-nginx-network
+    command:
+      - "--api.dashboard=false"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      # The entrypoints we ant to expose
+      - "--entrypoints.websecure.address=:443"
+
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
     ports:
       - "8090:80"
+      - "443:443"
+    networks:
+      - wds-www-nginx-network
+    labels:
+      #   # Router for traefik dashboard
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.redirect-www-to-non-www.redirectregex.regex=^https?://www\\.webdrei\\.com/(.*)"
+      - "traefik.http.middlewares.redirect-www-to-non-www.redirectregex.replacement=https://webdrei.com/$${1}"
+      - "traefik.http.middlewares.redirect-www-to-non-www.redirectregex.permanent=true"
+
+      # Router for redirecting www.webdrei.com to webdrei.com
+      - "traefik.http.routers.redirect-to-non-www.rule=Host(`www.webdrei.com`)"
+      - "traefik.http.routers.redirect-to-non-www.entrypoints=websecure"
+      - "traefik.http.routers.redirect-to-non-www.middlewares=redirect-www-to-non-www"
 
   wds-www:
     image: "ghassanaldarwish/wds-www"
@@ -24,6 +47,14 @@ services:
 
     env_file:
       - ../environment/wds-www/.env.local
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wds-www-nginx.rule=Host(`webdrei.com`)"
+      - "traefik.http.routers.wds-www-nginx.entrypoints=websecure"
+      - traefik.http.routers.wds-www-nginx.tls=true
+      - traefik.http.routers.wds-www-nginx.tls.domains[0].main=webdrei.com
+      - traefik.http.routers.wds-www-nginx.tls.domains[0].sans=*.webdrei.com
+      - "traefik.http.services.wds-www-nginx.loadbalancer.server.port=3000"
 
 networks:
   wds-www-nginx-network:
