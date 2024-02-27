@@ -6,14 +6,9 @@ services:
     container_name: wds-www-traefik
     restart: always
     command:
-      - "--api.dashboard=false"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      # The entrypoints we ant to expose
-      - "--entrypoints.websecure.address=:443"
-
-      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
@@ -31,7 +26,7 @@ services:
 
       # Router for redirecting www.webdrei.com to webdrei.com
       - "traefik.http.routers.redirect-to-non-www.rule=Host(`www.webdrei.com`)"
-      - "traefik.http.routers.redirect-to-non-www.entrypoints=websecure"
+
       - "traefik.http.routers.redirect-to-non-www.middlewares=redirect-www-to-non-www"
 
   wds-www:
