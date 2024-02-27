@@ -10,7 +10,7 @@ import { AuthProvider } from "@/context/auth-context";
 
 export const metadata: Metadata = {
   referrer: "origin",
-  title: "WDPS",
+  title: "WDS",
   description: "Web drei pins. Create flexible and powerful presentations.",
   generator: "Next.js",
   manifest: "/manifest.json",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   appleWebApp: {
     capable: true,
-    title: "WDPS",
+    title: "WDS",
     statusBarStyle: "default",
   },
   formatDetection: {

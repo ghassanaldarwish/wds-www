@@ -8,7 +8,7 @@ import { TailwindIndicator } from "@/components/ui/tailwind-indicator";
 import AuthProvider from "@/context/auth";
 
 export const metadata: Metadata = {
-  title: "WDPS",
+  title: "WDS",
   description: "Web drei pins. Create flexible and powerful presentations.",
   generator: "Next.js",
   manifest: "/manifest.json",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   appleWebApp: {
     capable: true,
-    title: "WDPS",
+    title: "WDS",
     statusBarStyle: "default",
   },
   formatDetection: {
