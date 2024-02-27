@@ -6,8 +6,8 @@ export const vscodeURL = "";
 
 export const wds_ui_site_url =
   process.env.NODE_ENV === "production"
-    ? "https://wds.ui.webdrei.com"
-    : "http://wds.ui.localhost";
+    ? "https://wds-ui.webdrei.com"
+    : "http://wds-ui.localhost";
 
 /*****   workspace URL     ***********************/
 
