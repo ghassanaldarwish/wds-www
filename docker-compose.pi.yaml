@@ -45,10 +45,6 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.wds-www.rule=Host(`webdrei.com`)"
-      - "traefik.http.routers.wds-www.entrypoints=websecure"
-      - traefik.http.routers.wds-www.tls=true
-      - traefik.http.routers.wds-www.tls.domains[0].main=webdrei.com
-      - traefik.http.routers.wds-www.tls.domains[0].sans=*.webdrei.com
       - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
 
 networks:
