@@ -47,6 +47,29 @@ services:
       - "traefik.http.routers.wds-www.rule=Host(`webdrei.com`)"
       - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
 
+  wds-www-api-auth:
+    image: "ghassanaldarwish/api-auth"
+
+    env_file:
+      - ../environment/wds-blogs/.env.local
+    environment:
+      - PORT=3013
+      - NODE_ENV=production
+      - DB_NAME=auth
+      - ROLE=admin
+      - CACHE_HOST=api-cache
+      - DB_URI=mongodb://api-db
+      - SERVICE_NAME=auth
+      - KAFKA_BROKER_LISTENER=kafka:9092
+    restart: on-failure
+    networks:
+      - wds-www-nginx-network
+      - app-workspace-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wds-www-api-auth.rule=Host(`webdrei.com`) && PathPrefix(`/api/v1/auth`)"
+      - "traefik.http.services.wds-www-api-auth.loadbalancer.server.port=3000"
+
 networks:
   wds-www-nginx-network:
     name: wds-www-nginx-network
