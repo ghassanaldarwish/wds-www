@@ -73,3 +73,6 @@ services:
 networks:
   wds-www-nginx-network:
     name: wds-www-nginx-network
+
+  app-workspace-network:
+    name: app-workspace-network
