@@ -1,39 +1,22 @@
 version: "3.8"
 # commands url http://host.docker.internal:6777
 services:
-  wds-www-traefik:
-    image: "traefik:latest"
-    container_name: wds-www-traefik
+  wds-www-nginx:
     restart: always
-    command:
-      - --api.insecure=true
-      - --providers.docker=true
-      - --providers.docker.exposedbydefault=false
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
-    ports:
-      - "8090:80"
-      - "443:443"
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
     networks:
       - wds-www-nginx-network
-    labels:
-      #   # Router for traefik dashboard
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.redirect-www-to-non-www.redirectregex.regex=^https?://www\\.webdrei\\.com/(.*)"
-      - "traefik.http.middlewares.redirect-www-to-non-www.redirectregex.replacement=https://webdrei.com/$${1}"
-      - "traefik.http.middlewares.redirect-www-to-non-www.redirectregex.permanent=true"
-
-      # Router for redirecting www.webdrei.com to webdrei.com
-      - "traefik.http.routers.redirect-to-non-www.rule=Host(`www.webdrei.com`)"
-
-      - "traefik.http.routers.redirect-to-non-www.middlewares=redirect-www-to-non-www"
+    ports:
+      - "8090:80"
 
   wds-www:
     image: "ghassanaldarwish/wds-www"
     restart: on-failure
     networks:
       - wds-www-nginx-network
+      - app-workspace-network
     environment:
       - IS_DOCKER=true
       - CHOKIDAR_USEPOLLING=true
@@ -42,10 +25,6 @@ services:
 
     env_file:
       - ../environment/wds-www/.env.local
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.wds-www.rule=Host(`webdrei.com`)"
-      - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
 
   wds-www-api-auth:
     image: "ghassanaldarwish/api-auth"
@@ -65,10 +44,6 @@ services:
     networks:
       - wds-www-nginx-network
       - app-workspace-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.wds-www-api-auth.rule=Host(`webdrei.com`) && PathPrefix(`/api/v1/auth`)"
-      - "traefik.http.services.wds-www-api-auth.loadbalancer.server.port=3000"
 
 networks:
   wds-www-nginx-network:
