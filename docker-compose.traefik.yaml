@@ -14,12 +14,12 @@ services:
       - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-www-traefik-app.rule=Host(`wdsui.com`)"
+      - "traefik.http.routers.wds-www-traefik-app.rule=Host(`webdrei.com`)"
       - "traefik.http.routers.wds-www-traefik-app.entrypoints=websecure"
       - "traefik.http.routers.wds-www-traefik-app.tls.certresolver=letsencrypt"
       - traefik.http.routers.wds-www-traefik-app.tls=true
-      - traefik.http.routers.wds-www-traefik-app.tls.domains[0].main=wdsui.com
-      - traefik.http.routers.wds-www-traefik-app.tls.domains[0].sans=*.wdsui.com
+      - traefik.http.routers.wds-www-traefik-app.tls.domains[0].main=webdrei.com
+      - traefik.http.routers.wds-www-traefik-app.tls.domains[0].sans=*.webdrei.com
       - "traefik.http.services.wds-www-traefik-app.loadbalancer.server.port=3000"
     env_file:
       - ../environment/wds-www/.env.local
