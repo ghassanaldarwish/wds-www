@@ -1,0 +1,32 @@
+version: "3.8"
+# commands url http://host.docker.internal:6777
+services:
+  wds-www-traefik-app:
+    image: "ghassanaldarwish/wds-www"
+    restart: on-failure
+    networks:
+      - app-workspace-network
+      - frontend
+    environment:
+      - IS_DOCKER=true
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+      - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wds-www-traefik-app.rule=Host(`wdsui.com`)"
+      - "traefik.http.routers.wds-www-traefik-app.entrypoints=websecure"
+      - "traefik.http.routers.wds-www-traefik-app.tls.certresolver=letsencrypt"
+      - traefik.http.routers.wds-www-traefik-app.tls=true
+      - traefik.http.routers.wds-www-traefik-app.tls.domains[0].main=wdsui.com
+      - traefik.http.routers.wds-www-traefik-app.tls.domains[0].sans=*.wdsui.com
+      - "traefik.http.services.wds-www-traefik-app.loadbalancer.server.port=3000"
+    env_file:
+      - ../environment/wds-workspace/.env.local
+
+networks:
+  app-workspace-network:
+    name: app-workspace-network
+
+  frontend:
+    name: frontend
