@@ -22,7 +22,7 @@ services:
       - traefik.http.routers.wds-www-traefik-app.tls.domains[0].sans=*.wdsui.com
       - "traefik.http.services.wds-www-traefik-app.loadbalancer.server.port=3000"
     env_file:
-      - ../environment/wds-workspace/.env.local
+      - ../environment/wds-www/.env.local
 
 networks:
   app-workspace-network:
