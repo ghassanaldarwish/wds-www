@@ -16,7 +16,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.wds-www-traefik-app.rule=Host(`webdrei.com`)"
       - "traefik.http.routers.wds-www-traefik-app.entrypoints=websecure"
-      - "traefik.http.routers.wds-www-traefik-app.tls.certresolver=cloudflare"
+      - "traefik.http.routers.wds-www-traefik-app.tls.certresolver=letsencrypt"
       - traefik.http.routers.wds-www-traefik-app.tls=true
       # - traefik.http.routers.wds-www-traefik-app.tls.domains[0].main=webdrei.com
       # - traefik.http.routers.wds-www-traefik-app.tls.domains[0].sans=*.webdrei.com
