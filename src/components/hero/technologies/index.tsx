@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Docker from "./docker";
 import Kubernetes from "./kubernetes";
@@ -10,10 +11,11 @@ import Terraform from "./terraform";
 import Jenkins from "./jenkins";
 import Nginx from "./nginx";
 import Git from "./git";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Technologies() {
   return (
-    <div className="flex gap-6">
+    <InfiniteMovingCards>
       <Docker />
       <Kubernetes />
       <Ansible />
@@ -25,6 +27,6 @@ export default function Technologies() {
       <Jenkins />
       <Nginx />
       <Git />
-    </div>
+    </InfiniteMovingCards>
   );
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="h-[70px] fixed top-0 w-screen flex items-center bg-background border-b">
+    <nav className="h-[70px] z-10 fixed top-0 w-screen flex items-center bg-background border-b">
       <div className="container flex justify-between">
         <div className="text-3xl font-bold">WebDrei</div>
         <div className="flex items-center gap-12">
@@ -11,22 +11,21 @@ export default function Navbar() {
             Home
           </Link>
           <Link className="hover:underline" href="/">
+            Services
+          </Link>
+          <Link className="hover:underline" href="/">
             About
           </Link>
           <Link className="hover:underline" href="/">
             Contact
           </Link>
-          <Link className="hover:underline" href="/">
-            Services
+
+          <Link className="" href="/">
+            Login
           </Link>
-          <div className="flex gap-6">
-            <Link className="" href="/">
-              Login
-            </Link>
-            <Link className="" href="/">
-              Register
-            </Link>
-          </div>
+          <Link className="" href="/">
+            Register
+          </Link>
         </div>
       </div>
     </nav>
