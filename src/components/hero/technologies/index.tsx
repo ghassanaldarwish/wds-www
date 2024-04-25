@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Docker from "./docker";
 import Kubernetes from "./kubernetes";

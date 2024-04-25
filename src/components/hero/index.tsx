@@ -20,7 +20,7 @@ export default function Hero() {
           <Button size="lg">Contact Us</Button>
         </div>
         <div className="flex justify-end h-full basis-1/2  items-end relative">
-          <div className="bg-gradient-to-r from-purple-500 w-9/12 h-[66%] to-primary   rounded-3xl -skew-x-12"></div>
+          <div className="bg-gradient-to-r from-primary/70 w-9/12 h-[66%] to-purple-300 rounded-3xl -skew-x-12"></div>
           <Image
             className="absolute bottom-0"
             quality={100}
