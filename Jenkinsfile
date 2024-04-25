@@ -32,7 +32,7 @@ pipeline {
                 // """
 
                 sh """
-                docker-compose -f docker-compose.traefik.yaml up -d
+                docker-compose up -d
                 """
             }
         }
