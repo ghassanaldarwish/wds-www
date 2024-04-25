@@ -2,7 +2,7 @@ version: "3.8"
 services:
   wds-www:
     image: "ghassanaldarwish/wds-www"
-    restart: always
+    restart: on-failure
     networks:
       - app-workspace-network
       - frontend
