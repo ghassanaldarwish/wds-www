@@ -3,7 +3,6 @@ import Image from "next/image";
 import Technologies from "./technologies";
 import { Highlight, HeroHighlight } from "@/components/ui/hero-highlight";
 import { Button } from "@/components/ui/button";
-import Fireworks from "./fireworks";
 
 export default function Hero() {
   return (
