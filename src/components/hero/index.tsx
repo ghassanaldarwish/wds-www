@@ -3,6 +3,7 @@ import Image from "next/image";
 import Technologies from "./technologies";
 import { Highlight, HeroHighlight } from "@/components/ui/hero-highlight";
 import { Button } from "@/components/ui/button";
+import Fireworks from "./fireworks";
 
 export default function Hero() {
   return (
@@ -12,8 +13,8 @@ export default function Hero() {
           <h1 className="text-3xl md:text-7xl font-bold text-center">
             WebDrei Solutions
           </h1>
-          <p className="font-extralight text-base md:text-4xl  py-12">
-            Focus on problem-solving strategies before{" "}
+          <p className="font-extralight text-base md:text-4xl  py-12 relative">
+            Focus on problem-solving strategies before
             <Highlight>technology selection</Highlight>
           </p>
 
@@ -22,6 +23,7 @@ export default function Hero() {
         <div className="flex justify-end h-full basis-1/2  items-end relative">
           <div className="bg-gradient-to-r from-primary/70 w-9/12 h-[66%] to-purple-300 rounded-3xl -skew-x-12"></div>
           <Image
+            priority
             className="absolute bottom-0"
             quality={100}
             src={"/hero.png"}
