@@ -15,7 +15,7 @@ RUN pnpm run build
 FROM node:20-alpine AS runner
 RUN npm install -g pnpm
 #COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/next.config.js ./
+COPY --from=build /app/next.config.mjs ./
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next ./.next
 COPY --from=prod-deps /app/node_modules ./node_modules
