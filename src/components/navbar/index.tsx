@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   return (
@@ -20,10 +22,10 @@ export default function Navbar() {
             Contact
           </Link>
 
-          <Link className="" href="/">
+          <Link className={cn(buttonVariants({ variant: "outline" }))} href="/">
             Login
           </Link>
-          <Link className="" href="/">
+          <Link className={cn(buttonVariants())} href="/">
             Register
           </Link>
         </div>
