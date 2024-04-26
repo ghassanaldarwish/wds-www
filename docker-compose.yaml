@@ -2,7 +2,7 @@ version: "3.8"
 services:
   wds-www:
     image: "ghassanaldarwish/wds-www"
-    restart: unless-stopped
+    restart: on-failure
     networks:
       - app-workspace-network
       - frontend
@@ -17,9 +17,11 @@ services:
       - "traefik.http.routers.wds-www.entrypoints=websecure"
       - "traefik.http.routers.wds-www.tls.certresolver=letsencrypt"
       - "traefik.http.routers.wds-www.tls=true"
+      # - traefik.http.routers.wds-www.tls.domains[0].main=webdrei.com
+      # - traefik.http.routers.wds-www.tls.domains[0].sans=*.webdrei.com
       - "traefik.http.services.wds-www.loadbalancer.server.port=3000"
     # env_file:
-    #   - ../environment/wds-workspace/.env.local
+    #   - ../environment/wds-www/.env.local
 
 networks:
   app-workspace-network:
