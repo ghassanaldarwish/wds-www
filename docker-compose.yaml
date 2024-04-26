@@ -13,7 +13,7 @@ services:
       - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wds-www.rule=Host(`ui.webdrei.com`)"
+      - "traefik.http.routers.wds-www.rule=Host(`webdrei.com`)"
       - "traefik.http.routers.wds-www.entrypoints=websecure"
       - "traefik.http.routers.wds-www.tls.certresolver=letsencrypt"
       - "traefik.http.routers.wds-www.tls=true"
