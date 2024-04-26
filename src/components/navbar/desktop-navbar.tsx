@@ -5,7 +5,7 @@ import navbarData from "./data";
 
 const DesktopNavbar = () => {
   return (
-    <div className=" items-center gap-12 hidden lg:flex">
+    <div className=" items-center gap-8 hidden lg:flex">
       {navbarData.map((item: any) =>
         item?.type === "button" ? (
           <Link

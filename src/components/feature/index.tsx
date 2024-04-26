@@ -4,22 +4,25 @@ import { Separator } from "@/components/ui/separator";
 import { Server, Layers, Figma, ChevronRight } from "lucide-react";
 
 import Link from "next/link";
+import StructureImage from "./structure-image";
 
 export default function Feature() {
   return (
     <section className="min-h-screen w-screen my-6 ">
       <div className="container h-screen flex gap-24 py-8">
         <div className="hidden  md:flex items-center basis-1/2">
-          <Image
+          {/* <Image
             className="w-full"
             src={"/feature.webp"}
             alt="Feature"
             width={500}
             height={500}
-          />
+          /> */}
+
+          <StructureImage />
         </div>
         <div className="w-full md:basis-1/2">
-          <h2 className="mb-6 text-3xl font-bold">
+          <h2 className="mb-6 text-xl md:text-3xl  font-bold">
             Solutions for Complex Architecture
           </h2>
           <p className="">
@@ -40,7 +43,7 @@ export default function Feature() {
               </div>
 
               <div className="flex flex-col gap-4">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-lg md:text-2xl font-bold">
                   Infrastructure and Configuration
                 </h3>
                 <p>
@@ -65,7 +68,9 @@ export default function Feature() {
               </div>
 
               <div className="flex flex-col gap-4 ">
-                <h3 className="text-2xl font-bold align-top">Microservices</h3>
+                <h3 className="text-lg md:text-2xl font-bold align-top">
+                  Microservices
+                </h3>
                 <p>
                   Embrace the microservices architecture with Kubernetes and
                   Docker, ensuring your applications are flexible and resilient.
@@ -88,7 +93,7 @@ export default function Feature() {
               </div>
 
               <div className="flex flex-col gap-4">
-                <h3 className="text-2xl font-bold">UI/UX Design</h3>
+                <h3 className="text-lg md:text-2xl font-bold">UI/UX Design</h3>
                 <p>
                   Experience design at its finest with our suite of beautiful,
                   fast, and modern reusable components. Tailored for elegance
@@ -105,9 +110,9 @@ export default function Feature() {
             </div>
             <Separator className="my-8" />
             <p>
-              Join us in redefining the possibilities of web architecture. Our
-              solutions are not just about meeting needs, they are about
-              exceeding expectations.
+              Redefining the possibilities of web architecture. Our solutions
+              are not just about meeting needs, they are about exceeding
+              expectations.
             </p>
           </div>
         </div>

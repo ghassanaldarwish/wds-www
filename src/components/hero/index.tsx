@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Technologies from "./technologies";
 import { Highlight, HeroHighlight } from "@/components/ui/hero-highlight";
-import { Button } from "@/components/ui/button";
+import ContactUs from "./contact-us";
 
 export default function Hero() {
   return (
@@ -18,7 +18,7 @@ export default function Hero() {
           </p>
           <div className="flex justify-center lg:justify-start">
             {" "}
-            <Button size="lg">Contact Us</Button>
+            <ContactUs />
           </div>
         </div>
         <div className="flex justify-end h-full basis-1/2  items-end relative">
