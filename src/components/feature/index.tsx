@@ -106,7 +106,7 @@ export default function Feature() {
             <Separator className="my-8" />
             <p>
               Join us in redefining the possibilities of web architecture. Our
-              solutions are not just about meeting needs; they're about
+              solutions are not just about meeting needs, they are about
               exceeding expectations.
             </p>
           </div>
