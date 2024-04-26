@@ -6,7 +6,7 @@ import DesktopNavbar from "./desktop-navbar";
 export default function Navbar() {
   return (
     <nav className="h-[60px] z-30 fixed top-0 w-screen flex items-center bg-background border-b">
-      <div className="px-1 w-full lg:container flex justify-between">
+      <div className="container flex justify-between">
         <Link href="/" className="text-3xl font-bold">
           WebDrei
         </Link>
