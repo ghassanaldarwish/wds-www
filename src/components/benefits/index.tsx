@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import Typescript from "./typescript";
 
 import { Waypoints, ChevronRight } from "lucide-react";
 import Patterns from "./patterns";
+import Typescript from "@/components/hero/technologies/typescript";
 
 export default function Benefits() {
   return (
@@ -32,7 +32,7 @@ export default function Benefits() {
           </div>
           <div className="flex flex-col gap-6">
             <div className="flex justify-center">
-              <Typescript />
+              <Typescript className="w-16 h-16 fill-primary" />
             </div>
             <h3 className="text-lg md:text-2xl font-bold">Typescript</h3>
             <p>

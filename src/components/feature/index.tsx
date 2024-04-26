@@ -9,7 +9,7 @@ import StructureImage from "./structure-image";
 export default function Feature() {
   return (
     <section className="min-h-screen w-screen my-6 ">
-      <div className="container h-screen flex gap-24 py-8">
+      <div className="container flex gap-24 py-8">
         <div className="hidden  md:flex items-center basis-1/2">
           {/* <Image
             className="w-full"

@@ -10,6 +10,7 @@ import Terraform from "./terraform";
 import Jenkins from "./jenkins";
 import Nginx from "./nginx";
 import Git from "./git";
+import Typescript from "./typescript";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Technologies() {
@@ -19,6 +20,7 @@ export default function Technologies() {
       <Kubernetes />
       <Ansible />
       <Nodejs />
+      <Typescript className="fill-primary" />
       <Reactjs />
       <Mongodb />
       <Tailwindcss />

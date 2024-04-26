@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Ansible() {
+export default function Ansible({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +9,7 @@ export default function Ansible() {
       width="100"
       height="100"
       viewBox="0 0 48 48"
+      className={className}
     >
       <path
         fill="#424242"

@@ -1,12 +1,14 @@
 import React from "react";
 
-export default function Typescript() {
+export default function Typescript({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      className="w-16 h-16 fill-primary"
+      width="100"
+      height="100"
+      className={className}
       viewBox="0 0 48 48"
     >
       <rect width="36" height="36" x="6" y="6"></rect>
