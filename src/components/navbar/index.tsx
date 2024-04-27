@@ -12,11 +12,13 @@ export default function Navbar() {
         <Link href="/" className="text-3xl font-bold">
           WebDrei
         </Link>
-        <div className=" flex gap-8">
+        <div className=" flex gap-4">
           <DesktopNavbar />
           <MobileNavbar />
-          <LanguageSelector />
-          <ModeToggle />
+          <div className="flex gap-2">
+            <LanguageSelector />
+            <ModeToggle />
+          </div>
         </div>
       </div>
     </nav>

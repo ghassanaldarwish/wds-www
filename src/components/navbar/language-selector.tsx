@@ -47,6 +47,15 @@ export default function LanguageSelector() {
           />
           Deutsch
         </DropdownMenuItem>
+        <DropdownMenuItem className="flex gap-2">
+          <Image
+            width={48}
+            height={48}
+            className="w-8"
+            src="/united-arab-emirates-icon.png"
+          />
+          العربية
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
