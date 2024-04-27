@@ -39,7 +39,7 @@ export default function Benefits() {
             </div>
             <h3 className="text-lg md:text-2xl font-bold">Typescript</h3>
             <p>
-              Enhance your application's reliability with TypeScript. By adding
+              Enhance your application reliability with TypeScript. By adding
               strong typing to JavaScript, we offer solutions that result in
               cleaner code, easier bug tracking, and more robust applications.
               TypeScript is the keystone for development that prioritizes both
