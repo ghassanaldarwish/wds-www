@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 
 export default function Typescript({ className }: { className?: string }) {
   return (
@@ -6,9 +7,7 @@ export default function Typescript({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      width="100"
-      height="100"
-      className={className}
+      className={cn("w-14 h-14 md:w-24 md:h-24", className)}
       viewBox="0 0 48 48"
     >
       <rect width="36" height="36" x="6" y="6"></rect>

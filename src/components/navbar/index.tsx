@@ -14,11 +14,12 @@ export default function Navbar() {
         </Link>
         <div className=" flex gap-4">
           <DesktopNavbar />
-          <MobileNavbar />
+
           <div className="flex gap-2">
             <LanguageSelector />
             <ModeToggle />
           </div>
+          <MobileNavbar />
         </div>
       </div>
     </nav>

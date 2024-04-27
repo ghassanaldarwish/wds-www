@@ -16,7 +16,7 @@ export default function Benefits() {
           Forward-thinking in the realm of software architecture, appealing to
           those who value high-quality and up-to-date development methodologies.
         </p>
-        <div className="flex justify-between gap-16 mt-8">
+        <div className="flex justify-between flex-col md:flex-row gap-16 mt-8">
           <div className="flex flex-col gap-6">
             <div className="flex justify-center">
               <Waypoints className="w-16 h-16 text-primary" />

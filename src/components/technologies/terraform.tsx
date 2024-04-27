@@ -1,13 +1,13 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 
-export default function Terraform() {
+export default function Terraform({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      width="100"
-      height="100"
+      className={cn("w-14 h-14 md:w-24 md:h-24", className)}
       viewBox="0 0 48 48"
     >
       <polygon fill="#6042ea" points="17,23 5,16 5,2 17,9"></polygon>

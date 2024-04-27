@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { Server, Layers, Figma, ChevronRight } from "lucide-react";
@@ -10,18 +9,10 @@ export default function Feature() {
   return (
     <section className="min-h-screen w-screen my-6 ">
       <div className="container flex gap-24 py-8">
-        <div className="hidden  md:flex items-center basis-1/2">
-          {/* <Image
-            className="w-full"
-            src={"/feature.webp"}
-            alt="Feature"
-            width={500}
-            height={500}
-          /> */}
-
+        <div className="hidden  lg:flex items-center basis-1/2">
           <StructureImage />
         </div>
-        <div className="w-full md:basis-1/2">
+        <div className="w-full xl:basis-1/2  z-20 bg-background">
           <h2 className="mb-6 text-xl md:text-3xl  font-bold">
             Solutions for Complex Architecture
           </h2>

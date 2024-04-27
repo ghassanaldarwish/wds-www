@@ -1,9 +1,9 @@
+import { cn } from "@/lib/utils";
+
 export default function Kafka({ className }: { className?: string }) {
   return (
     <svg
-      className={className}
-      width="100"
-      height="100"
+      className={cn("w-14 h-14 md:w-24 md:h-24", className)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 128 128"
     >
