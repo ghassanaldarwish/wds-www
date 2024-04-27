@@ -11,12 +11,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Send } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ContactUs() {
+  const t = useTranslations("Index");
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button size="lg">Contact Us</Button>
+        <Button size="lg">{t("hero.contact.button")}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

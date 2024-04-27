@@ -1,6 +1,14 @@
 {
   "Index": {
     "title": "Internationalisation avec Next.js 14",
-    "description": "Un tutoriel complet pour tous !"
+    "description": "Un tutoriel complet pour tous !",
+    "hero": {
+      "title": "Lösungen",
+      "description": "Wir konzentrieren uns auf Problemlösungsstrategien bevor",
+      "description-highlight": "Technologieauswahl",
+      "contact": {
+        "button": "Kontaktieren Sie uns"
+      }
+    }
   }
 }

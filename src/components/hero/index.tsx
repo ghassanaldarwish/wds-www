@@ -11,13 +11,12 @@ export default function Hero() {
     <HeroHighlight className="container min-h-screen h-screen py-16">
       <div className="flex flex-col lg:flex-row items-center h-[90%] justify-between py-6">
         <div className="basis-1/2 flex flex-col gap-6 lg:gap-10">
-          <div>{t("title")}</div>
           <h1 className="text-3xl md:text-7xl font-bold text-center lg:text-left">
-            WebDrei Solutions
+            WebDrei {t("hero.title")}
           </h1>
           <p className="font-extralight text-base md:text-4xl text-center lg:text-left relative">
-            Focus on problem-solving strategies before
-            <Highlight>technology selection</Highlight>
+            {t("hero.description")}
+            <Highlight>{t("hero.description-highlight")}</Highlight>
           </p>
           <div className="flex justify-center lg:justify-start">
             {" "}

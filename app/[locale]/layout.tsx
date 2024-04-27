@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
-
+import useTextDirection from "@/hooks/useTextDirection";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -23,9 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  console.log("locale", locale);
+  const direction = useTextDirection(locale);
+
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={direction}>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

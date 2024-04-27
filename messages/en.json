@@ -1,6 +1,15 @@
 {
   "Index": {
     "title": "Next.js 14 Internationalization",
-    "description": "A complete tutorial for all!"
+    "description": "A complete tutorial for all!",
+    "hero": {
+      "title": "Solutions",
+      "description": "We focus on problem-solving strategies before",
+      "description-highlight": "technology selection",
+
+      "contact": {
+        "button": "Contact Us"
+      }
+    }
   }
 }
