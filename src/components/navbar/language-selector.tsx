@@ -19,6 +19,7 @@ export default function LanguageSelector() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="flex gap-2">
           <Image
+            alt="united-kingdom"
             width={48}
             height={48}
             className="w-8"
@@ -31,6 +32,7 @@ export default function LanguageSelector() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem className="flex gap-2">
           <Image
+            alt="united-kingdom"
             width={48}
             height={48}
             className="w-8"
@@ -40,6 +42,7 @@ export default function LanguageSelector() {
         </DropdownMenuItem>
         <DropdownMenuItem className="flex gap-2">
           <Image
+            alt="germany"
             width={48}
             height={48}
             className="w-8"
@@ -49,6 +52,7 @@ export default function LanguageSelector() {
         </DropdownMenuItem>
         <DropdownMenuItem className="flex gap-2">
           <Image
+            alt="united-arab-emirates"
             width={48}
             height={48}
             className="w-8"
