@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Technologies from "./technologies";
+import Technologies from "@/components/technologies";
 import { Highlight, HeroHighlight } from "@/components/ui/hero-highlight";
 import ContactUs from "./contact-us";
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import DesktopNavbar from "./desktop-navbar";
 import ModeToggle from "./mode-toggle";
+import LanguageSelector from "./language-selector";
 
 export default function Navbar() {
   return (
@@ -14,6 +15,7 @@ export default function Navbar() {
         <div className=" flex gap-8">
           <DesktopNavbar />
           <MobileNavbar />
+          <LanguageSelector />
           <ModeToggle />
         </div>
       </div>
