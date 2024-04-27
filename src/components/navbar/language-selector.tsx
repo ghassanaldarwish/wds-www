@@ -22,7 +22,7 @@ interface Language {
 }
 
 interface Languages {
-  [key: "en" | "de" | "ar"]: Language;
+  [key: string]: Language;
 }
 
 const languages: Languages = {
