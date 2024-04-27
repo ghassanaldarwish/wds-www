@@ -3,12 +3,15 @@ import Image from "next/image";
 import Technologies from "@/components/technologies";
 import { Highlight, HeroHighlight } from "@/components/ui/hero-highlight";
 import ContactUs from "./contact-us";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("Index");
   return (
     <HeroHighlight className="container min-h-screen h-screen py-16">
       <div className="flex flex-col lg:flex-row items-center h-[90%] justify-between py-6">
         <div className="basis-1/2 flex flex-col gap-6 lg:gap-10">
+          <div>{t("title")}</div>
           <h1 className="text-3xl md:text-7xl font-bold text-center lg:text-left">
             WebDrei Solutions
           </h1>

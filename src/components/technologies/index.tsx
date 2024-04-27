@@ -11,6 +11,10 @@ import Jenkins from "./jenkins";
 import Nginx from "./nginx";
 import Git from "./git";
 import Typescript from "./typescript";
+import Kafka from "./kafka";
+
+import Traefik from "./traefik";
+
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Technologies() {
@@ -23,9 +27,11 @@ export default function Technologies() {
       <Typescript className="fill-primary" />
       <Reactjs />
       <Mongodb />
+      <Traefik />
       <Tailwindcss />
       <Terraform />
       <Jenkins />
+      <Kafka />
       <Nginx />
       <Git />
     </InfiniteMovingCards>
