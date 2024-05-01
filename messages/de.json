@@ -61,7 +61,7 @@
       "items": {
         "item-1": {
           "title": "Event-Driven",
-          "description": "Implementieren Sie Kafka und RabbitMQ für ein widerstandsfähiges und skalierbares Nachrichtensystem. Perfekt für Anwendungen, die Echtzeit-Datenverarbeitung und nahtlose Ereignisbehandlung benötigen, ermöglichen unsere Lösungen Ihrer Infrastruktur, komplexe Workflows mühelos zu bewältigen.",
+          "description": "Implementieren Sie Kafka oder RabbitMQ für ein widerstandsfähiges und skalierbares Nachrichtensystem. Perfekt für Anwendungen, die Echtzeit-Datenverarbeitung und nahtlose Ereignisbehandlung benötigen, ermöglichen unsere Lösungen Ihrer Infrastruktur, komplexe Workflows mühelos zu bewältigen.",
           "link-title": "Mehr erfahren"
         },
         "item-2": {

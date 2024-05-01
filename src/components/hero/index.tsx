@@ -6,9 +6,12 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import useTextDirection from "@/hooks/useTextDirection";
 
 export default function Hero() {
   const t = useTranslations("Index");
+  const direction = useTextDirection();
+
   return (
     <HeroHighlight className="container h-screen">
       <div className="flex flex-col lg:flex-row items-center h-[75%] justify-between py-6">
@@ -20,7 +23,11 @@ export default function Hero() {
             {t("hero.description")}
             <Highlight>{t("hero.description-highlight")}</Highlight>
           </p>
-          <div className="flex justify-center lg:justify-start">
+          <div
+            className={cn("flex justify-center lg:justify-start", {
+              "lg:justify-center": direction === "rtl",
+            })}
+          >
             <Link
               className={cn(
                 buttonVariants({

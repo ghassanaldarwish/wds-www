@@ -15,6 +15,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
+import useTextDirection from "@/hooks/useTextDirection";
+import { cn } from "@/lib/utils";
 
 interface Language {
   name: string;
@@ -41,6 +43,8 @@ const languages: Languages = {
 };
 
 export default function LanguageSelector() {
+  const direction = useTextDirection();
+
   const { locale } = useParams<{ locale: string }>();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -68,7 +72,12 @@ export default function LanguageSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="flex gap-2">
+        <Button
+          variant="ghost"
+          className={cn("flex gap-2", {
+            "flex-row-reverse": direction === "rtl",
+          })}
+        >
           <Image
             alt={languageInfo.name as string}
             width={48}

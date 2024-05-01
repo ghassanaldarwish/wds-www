@@ -29,7 +29,7 @@ export default function RootLayout({
   const direction = useTextDirection(locale);
 
   return (
-    <html lang={locale} dir={direction}>
+    <html className="scroll-smooth" lang={locale} dir={direction}>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

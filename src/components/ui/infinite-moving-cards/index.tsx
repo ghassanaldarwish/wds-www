@@ -1,5 +1,6 @@
 "use client";
 
+import useTextDirection from "@/hooks/useTextDirection";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
@@ -16,6 +17,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
+  const directionLang = useTextDirection();
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
@@ -77,7 +79,10 @@ export const InfiniteMovingCards = ({
         ref={scrollerRef}
         className={cn(
           " flex min-w-full items-center shrink-0 gap-8 py-4 w-max flex-nowrap",
-          start && "animate-scroll ",
+          start && directionLang === "rtl"
+            ? "animate-scroll-rtl"
+            : "animate-scroll ",
+
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >

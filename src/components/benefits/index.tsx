@@ -5,9 +5,12 @@ import { useTranslations } from "next-intl";
 import { Waypoints, ChevronRight } from "lucide-react";
 import Patterns from "./patterns";
 import Typescript from "@/components/technologies/typescript";
+import { cn } from "@/lib/utils";
+import useTextDirection from "@/hooks/useTextDirection";
 
 export default function Benefits() {
   const t = useTranslations("Index");
+  const direction = useTextDirection();
 
   return (
     <section className=" py-16 text-center relative   my-6 w-screen ">
@@ -30,7 +33,11 @@ export default function Benefits() {
                 {" "}
                 {t("benefits.items.item-1.link-title")}
               </Link>
-              <ChevronRight />
+              <ChevronRight
+                className={cn({
+                  "transform rotate-180": direction === "rtl",
+                })}
+              />
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -46,7 +53,11 @@ export default function Benefits() {
                 {" "}
                 {t("benefits.items.item-2.link-title")}
               </Link>
-              <ChevronRight />
+              <ChevronRight
+                className={cn({
+                  "transform rotate-180": direction === "rtl",
+                })}
+              />
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -62,7 +73,11 @@ export default function Benefits() {
                 {" "}
                 {t("benefits.items.item-3.link-title")}
               </Link>
-              <ChevronRight />
+              <ChevronRight
+                className={cn({
+                  "transform rotate-180": direction === "rtl",
+                })}
+              />
             </div>
           </div>
         </div>

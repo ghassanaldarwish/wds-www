@@ -71,6 +71,11 @@ module.exports = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        "scroll-rtl": {
+          to: {
+            transform: "translate(calc(50% + 0.5rem))",
+          },
+        },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -83,6 +88,8 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-rtl":
+          "scroll-rtl var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },

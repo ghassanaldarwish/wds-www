@@ -61,7 +61,7 @@
       "items": {
         "item-1": {
           "title": "Event-Driven",
-          "description": "Implement Kafka and RabbitMQ for a resilient and scalable messaging system. Perfect for applications that require real-time data processing and seamless event handling, our solutions empower your infrastructure to handle complex workflows with ease.",
+          "description": "Implement Kafka or RabbitMQ for a resilient and scalable messaging system. Perfect for applications that require real-time data processing and seamless event handling, our solutions empower your infrastructure to handle complex workflows with ease.",
           "link-title": "Learn More"
         },
         "item-2": {

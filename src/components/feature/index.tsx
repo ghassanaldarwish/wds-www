@@ -4,11 +4,14 @@ import { Server, Layers, Figma, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import StructureImage from "./structure-image";
+import useTextDirection from "@/hooks/useTextDirection";
+import { cn } from "@/lib/utils";
 
 export default function Feature() {
   const t = useTranslations("Index");
+  const direction = useTextDirection();
   return (
-    <section className="min-h-screen w-screen my-6 ">
+    <section className="min-h-screen w-screen my-6 " id="feature">
       <div className="container flex gap-24 py-24">
         <div className="hidden  lg:flex items-center basis-1/2">
           <StructureImage />
@@ -37,7 +40,11 @@ export default function Feature() {
                   <Link href="/infrastructure-and-configuration">
                     {t("feature.items.item-1.link-title")}
                   </Link>
-                  <ChevronRight />
+                  <ChevronRight
+                    className={cn({
+                      "transform rotate-180": direction === "rtl",
+                    })}
+                  />
                 </div>
               </div>
             </div>
@@ -57,7 +64,11 @@ export default function Feature() {
                   <Link href="/infrastructure-and-configuration">
                     {t("feature.items.item-2.link-title")}{" "}
                   </Link>
-                  <ChevronRight />
+                  <ChevronRight
+                    className={cn({
+                      "transform rotate-180": direction === "rtl",
+                    })}
+                  />
                 </div>
               </div>
             </div>
@@ -77,7 +88,11 @@ export default function Feature() {
                   <Link href="/infrastructure-and-configuration">
                     {t("feature.items.item-3.link-title")}
                   </Link>
-                  <ChevronRight />
+                  <ChevronRight
+                    className={cn({
+                      "transform rotate-180": direction === "rtl",
+                    })}
+                  />
                 </div>
               </div>
             </div>
