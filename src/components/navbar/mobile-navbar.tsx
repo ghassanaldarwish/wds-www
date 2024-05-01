@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import navbarData from "./data";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";

@@ -1,9 +1,12 @@
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import navbarData from "./data";
+import { useTranslations } from "next-intl";
 
 const DesktopNavbar = () => {
+  const t = useTranslations("Navbar");
+
   return (
     <div className=" items-center gap-8 hidden lg:flex">
       {navbarData.map((item: any) =>
@@ -13,11 +16,11 @@ const DesktopNavbar = () => {
             className={cn(buttonVariants({ variant: item.variant }))}
             href={item.href}
           >
-            {item.name}
+            {t(`${item.name}`)}
           </Link>
         ) : (
           <Link key={item.name} className="hover:underline" href={item.href}>
-            {item.name}
+            {t(`${item.name}`)}
           </Link>
         )
       )}

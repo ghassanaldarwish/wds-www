@@ -1,4 +1,24 @@
 {
+  "Mode": {
+    "dark": "Dunkel",
+    "light": "Hell",
+    "system": "System"
+  },
+
+  "Footer": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "solutions": "Lösungen",
+    "contact": "Kontakt",
+    "privacy-policy": "Datenschutzrichtlinie"
+  },
+
+  "Navbar": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "solutions": "Lösungen",
+    "contact": "Kontakt"
+  },
   "Index": {
     "title": "Internationalisation avec Next.js 14",
     "description": "Un tutoriel complet pour tous !",
@@ -8,6 +28,61 @@
       "description-highlight": "Technologieauswahl",
       "contact": {
         "button": "Kontaktieren Sie uns"
+      }
+    },
+
+    "feature": {
+      "title": "Lösungen für komplexe Architektur",
+      "description": "Im dynamischen Bereich der Webentwicklung fordert die Komplexität der Architektur nicht nur Lösungen, sondern visionäre Transformationen. Unser Ansatz zur komplexen Architektur integriert modernste Methodologien und Technologien, die darauf ausgelegt sind, zu skalieren, sich anzupassen und zu übertreffen.",
+      "summary": "Die Möglichkeiten der Webarchitektur neu definieren. Unsere Lösungen gehen nicht nur darauf ein, Bedürfnisse zu erfüllen, sie übertreffen die Erwartungen.",
+      "items": {
+        "item-1": {
+          "title": "Infrastruktur und Konfiguration",
+          "description": "Nutzen Sie die Kraft von Terraform und Ansible für robustes und skalierbares Infrastrukturmanagement. Automatisieren Sie Ihre Konfigurationen, um Konsistenz über Umgebungen hinweg zu gewährleisten und eine schnellere Bereitstellung und höhere Zuverlässigkeit zu ermöglichen.",
+          "link-title": "Mehr erfahren"
+        },
+        "item-2": {
+          "title": "Microservices",
+          "description": "Nutzen Sie die Microservices-Architektur mit Kubernetes und Docker, um Ihre Anwendungen flexibel und widerstandsfähig zu gestalten. Vereinfachen Sie die Bereitstellungsprozesse und verbessern Sie die Skalierbarkeit und Isolation, was einfachere Updates und bessere Leistung ermöglicht.",
+          "link-title": "Mehr erfahren"
+        },
+        "item-3": {
+          "title": "UI/UX Design",
+          "description": "Erleben Sie Design in seiner besten Form mit unserer Suite von schönen, schnellen und modernen wiederverwendbaren Komponenten. Maßgeschneidert für Eleganz und Funktionalität, sorgen unsere Designs für ansprechende Benutzererfahrungen, die sowohl intuitiv als auch visuell ansprechend sind.",
+          "link-title": "Mehr erfahren"
+        }
+      }
+    },
+
+    "benefits": {
+      "title": "Steigern Sie die Reaktionsfähigkeit und Skalierbarkeit Ihrer Software",
+      "description": "Zukunftsorientiert im Bereich der Softwarearchitektur, ansprechend für diejenigen, die hochwertige und aktuelle Entwicklungs-methodologien schätzen.",
+
+      "items": {
+        "item-1": {
+          "title": "Event-Driven",
+          "description": "Implementieren Sie Kafka und RabbitMQ für ein widerstandsfähiges und skalierbares Nachrichtensystem. Perfekt für Anwendungen, die Echtzeit-Datenverarbeitung und nahtlose Ereignisbehandlung benötigen, ermöglichen unsere Lösungen Ihrer Infrastruktur, komplexe Workflows mühelos zu bewältigen.",
+          "link-title": "Mehr erfahren"
+        },
+        "item-2": {
+          "title": "Typescript",
+          "description": "Verbessern Sie die Zuverlässigkeit Ihrer Anwendung mit TypeScript. Durch das Hinzufügen von starker Typisierung zu JavaScript bieten wir Lösungen, die zu saubererem Code, einfacherer Fehlerverfolgung und robusteren Anwendungen führen. TypeScript ist der Eckstein für Entwicklung, die Effizienz und Qualität priorisiert.",
+          "link-title": "Mehr erfahren"
+        },
+        "item-3": {
+          "title": "Software Design",
+          "description": "Halten Sie sich an die Designmuster und S.O.L.I.D Prinzipien für Softwareentwurf, um Systeme zu schaffen, die modular, handhabbar und anpassbar sind. Unser Ansatz stellt sicher, dass Ihre Anwendungen auf Langlebigkeit ausgelegt sind und mit den Bedürfnissen Ihres Unternehmens weiterentwickeln können.",
+          "link-title": "Mehr erfahren"
+        }
+      }
+    },
+
+    "cicd": {
+      "title": "Optimierte Automatisierungslösungen",
+      "description": "Entfesseln Sie das volle Potenzial von Continuous Integration und Delivery mit unseren maßgeschneiderten Automatisierungslösungen. Nutzen Sie die kollaborative Kraft von GitHub und GitLab, um Ihre Entwicklungsabläufe zu optimieren. Automatisieren Sie Ihre Builds, Tests und Deployments mit Jenkins, dem branchenüblichen Orchestrierungswerkzeug. Erkunden Sie die Möglichkeiten einer leichten, aber leistungsstarken HomeLab-Einrichtung auf dem Raspberry Pi - perfekt für kleinmaßstäbliche Experimente oder persönliche Projekte. Heben Sie Ihren Entwicklungsprozess mit unseren modernsten Werkzeugen auf ein neues Level und optimieren Sie Ihre Lieferpipeline für maximale Effizienz.",
+      "sub": {
+        "title": "Die Kraft der Automatisierung und",
+        "highlight": "Pipelines"
       }
     }
   }

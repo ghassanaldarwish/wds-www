@@ -1,8 +1,8 @@
 const navbarData = [
-  { name: "Home", href: "/" },
+  { name: "home", href: "/" },
   { name: "solutions", href: "/solutions" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "about", href: "/about" },
+  { name: "contact", href: "/contact" },
   // { name: "Login", href: "/login", type: "button", variant: "outline" },
   // { name: "Register", href: "/register", type: "button", variant: "default" },
 ];

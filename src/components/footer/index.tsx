@@ -1,13 +1,17 @@
 import React from "react";
 import { Rocket } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-
+import { Link } from "@/navigation";
+import footerData from "./data";
+import { useTranslations } from "next-intl";
 export default function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="bg-background ">
       <div className="container py-6">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a
+          <Link
             href="/"
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
@@ -15,28 +19,15 @@ export default function Footer() {
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               WebDrei
             </span>
-          </a>
+          </Link>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium  sm:mb-0 ">
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
-                Licensing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact
-              </a>
-            </li>
+            {footerData.map((item: any, index: number) => (
+              <li key={index}>
+                <Link href={item.href} className="hover:underline me-4 md:me-6">
+                  {t(`${item.name}`)}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <Separator className="my-6  sm:mx-auto  lg:my-8" />

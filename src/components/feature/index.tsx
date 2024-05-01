@@ -1,28 +1,23 @@
 import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { Server, Layers, Figma, ChevronRight } from "lucide-react";
-
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import StructureImage from "./structure-image";
 
 export default function Feature() {
+  const t = useTranslations("Index");
   return (
     <section className="min-h-screen w-screen my-6 ">
-      <div className="container flex gap-24 py-8">
+      <div className="container flex gap-24 py-24">
         <div className="hidden  lg:flex items-center basis-1/2">
           <StructureImage />
         </div>
         <div className="w-full xl:basis-1/2  z-20 bg-background">
           <h2 className="mb-6 text-xl md:text-3xl  font-bold">
-            Solutions for Complex Architecture
+            {t("feature.title")}
           </h2>
-          <p className="">
-            In the dynamic realm of web development, the complexity of
-            architecture demands not just solutions, but visionary
-            transformations. Our approach to complex architecture integrates
-            state-of-the-art methodologies and technologies designed to scale,
-            adapt, and excel.
-          </p>
+          <p className="">{t("feature.description")}</p>
 
           <Separator className="my-8" />
 
@@ -35,17 +30,12 @@ export default function Feature() {
 
               <div className="flex flex-col gap-4">
                 <h3 className="text-lg md:text-2xl font-bold">
-                  Infrastructure and Configuration
+                  {t("feature.items.item-1.title")}
                 </h3>
-                <p>
-                  Utilize the power of Terraform and Ansible for robust and
-                  scalable infrastructure management. Automate your
-                  configurations to ensure consistency across environments,
-                  enabling faster deployment and higher reliability.
-                </p>
+                <p>{t("feature.items.item-1.description")}</p>
                 <div className="flex gap-2 hover:underline">
                   <Link href="/infrastructure-and-configuration">
-                    Learn More
+                    {t("feature.items.item-1.link-title")}
                   </Link>
                   <ChevronRight />
                 </div>
@@ -60,17 +50,12 @@ export default function Feature() {
 
               <div className="flex flex-col gap-4 ">
                 <h3 className="text-lg md:text-2xl font-bold align-top">
-                  Microservices
+                  {t("feature.items.item-2.title")}
                 </h3>
-                <p>
-                  Embrace the microservices architecture with Kubernetes and
-                  Docker, ensuring your applications are flexible and resilient.
-                  Streamline deployment processes and enhance scalability and
-                  isolation, facilitating easier updates and better performance.
-                </p>
+                <p>{t("feature.items.item-2.description")}</p>
                 <div className="flex gap-2 hover:underline">
                   <Link href="/infrastructure-and-configuration">
-                    Learn More
+                    {t("feature.items.item-2.link-title")}{" "}
                   </Link>
                   <ChevronRight />
                 </div>
@@ -84,27 +69,20 @@ export default function Feature() {
               </div>
 
               <div className="flex flex-col gap-4">
-                <h3 className="text-lg md:text-2xl font-bold">UI/UX Design</h3>
-                <p>
-                  Experience design at its finest with our suite of beautiful,
-                  fast, and modern reusable components. Tailored for elegance
-                  and functionality, our designs ensure engaging user
-                  experiences that are both intuitive and visually appealing.
-                </p>
+                <h3 className="text-lg md:text-2xl font-bold">
+                  {t("feature.items.item-3.link-title")}
+                </h3>
+                <p>{t("feature.items.item-3.description")}</p>
                 <div className="flex gap-2 hover:underline">
                   <Link href="/infrastructure-and-configuration">
-                    Learn More
+                    {t("feature.items.item-3.link-title")}
                   </Link>
                   <ChevronRight />
                 </div>
               </div>
             </div>
             <Separator className="my-8" />
-            <p>
-              Redefining the possibilities of web architecture. Our solutions
-              are not just about meeting needs, they are about exceeding
-              expectations.
-            </p>
+            <p>{t("feature.summary")}</p>
           </div>
         </div>
       </div>

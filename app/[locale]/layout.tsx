@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
 import useTextDirection from "@/hooks/useTextDirection";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -23,6 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  const messages = useMessages();
   const direction = useTextDirection(locale);
 
   return (
@@ -33,16 +36,18 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <>{children}</>
-          <Footer />
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <main className="mt-16">{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

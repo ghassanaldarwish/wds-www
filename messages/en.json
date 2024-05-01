@@ -1,4 +1,23 @@
 {
+  "Mode": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "Footer": {
+    "home": "Home",
+    "about": "About",
+    "solutions": "solutions",
+    "contact": "Contact",
+    "privacy-policy": "Privacy Policy"
+  },
+
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "solutions": "solutions",
+    "contact": "Contact"
+  },
   "Index": {
     "title": "Next.js 14 Internationalization",
     "description": "A complete tutorial for all!",
@@ -9,6 +28,61 @@
 
       "contact": {
         "button": "Contact Us"
+      }
+    },
+    "feature": {
+      "title": "Solutions for Complex Architecture",
+      "description": "In the dynamic realm of web development, the complexity of architecture demands not just solutions, but visionary transformations. Our approach to complex architecture integrates state-of-the-art methodologies and technologies designed to scale, adapt, and excel.",
+      "summary": "Redefining the possibilities of web architecture. Our solutions are not just about meeting needs, they are about exceeding expectations.",
+
+      "items": {
+        "item-1": {
+          "title": "Infrastructure and Configuration",
+          "description": "Utilize the power of Terraform and Ansible for robust and scalable infrastructure management. Automate your configurations to ensure consistency across environments, enabling faster deployment and higher reliability.",
+          "link-title": "Learn More"
+        },
+        "item-2": {
+          "title": "Microservices",
+          "description": "Embrace the microservices architecture with Kubernetes and Docker, ensuring your applications are flexible and resilient. Streamline deployment processes and enhance scalability and isolation, facilitating easier updates and better performance.",
+          "link-title": "Learn More"
+        },
+        "item-3": {
+          "title": "UI/UX Design",
+          "description": "Experience design at its finest with our suite of beautiful, fast, and modern reusable components. Tailored for elegance and functionality, our designs ensure engaging user experiences that are both intuitive and visually appealing.",
+          "link-title": "Learn More"
+        }
+      }
+    },
+
+    "benefits": {
+      "title": "Elevate your software responsiveness and scalability",
+      "description": "Forward-thinking in the realm of software architecture, appealing to those who value high-quality and up-to-date development methodologies.",
+
+      "items": {
+        "item-1": {
+          "title": "Event-Driven",
+          "description": "Implement Kafka and RabbitMQ for a resilient and scalable messaging system. Perfect for applications that require real-time data processing and seamless event handling, our solutions empower your infrastructure to handle complex workflows with ease.",
+          "link-title": "Learn More"
+        },
+        "item-2": {
+          "title": "Typescript",
+          "description": "Enhance your application reliability with TypeScript. By adding strong typing to JavaScript, we offer solutions that result in cleaner code, easier bug tracking, and more robust applications. TypeScript is the keystone for development that prioritizes both efficiency and quality.",
+          "link-title": "Learn More"
+        },
+        "item-3": {
+          "title": "Software Design",
+          "description": "Adhere to the design patterns and S.O.L.I.D principles for software design to create systems that are modular, manageable, and adaptable. Our approach ensures that your applications are built for longevity and can evolve with your business needs.",
+          "link-title": "Learn More"
+        }
+      }
+    },
+
+    "cicd": {
+      "title": "Streamlined Automation Solutions",
+      "description": "Unlock the full potential of continuous integration and delivery with our tailored automation solutions. Harness the collaborative power of GitHub and GitLab to streamline your development workflows. Automate your builds, tests, and deployments with Jenkins, the industry-standard orchestration tool. Explore the possibilities of a lightweight yet powerful HomeLab setup on Raspberry Pi—perfect for small-scale experimentation or personal projects. Elevate your development process with our cutting-edge tools and optimize your delivery pipeline for peak efficiency.",
+      "sub": {
+        "title": "The power of automation and",
+        "highlight": "Pipelines"
       }
     }
   }
