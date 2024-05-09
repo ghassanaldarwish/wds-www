@@ -78,13 +78,7 @@ export default function LanguageSelector() {
             "flex-row-reverse": direction === "rtl",
           })}
         >
-          <Image
-            alt={languageInfo.name as string}
-            width={48}
-            height={48}
-            className="w-8"
-            src={languageInfo.icon as string}
-          />
+          {languageInfo.name}
 
           <ChevronDown className="w-4 h-4" />
           <span className="sr-only">Language</span>
@@ -95,39 +89,18 @@ export default function LanguageSelector() {
           className="flex gap-2"
           onClick={() => selectorHandler("en")}
         >
-          <Image
-            alt="united-kingdom"
-            width={48}
-            height={48}
-            className="w-8"
-            src="/united-kingdom-icon.png"
-          />
           English
         </DropdownMenuItem>
         <DropdownMenuItem
           className="flex gap-2"
           onClick={() => selectorHandler("de")}
         >
-          <Image
-            alt="germany"
-            width={48}
-            height={48}
-            className="w-8"
-            src="/germany-icon.png"
-          />
           Deutsch
         </DropdownMenuItem>
         <DropdownMenuItem
           className="flex gap-2"
           onClick={() => selectorHandler("ar")}
         >
-          <Image
-            alt="united-arab-emirates"
-            width={48}
-            height={48}
-            className="w-8"
-            src="/united-arab-emirates-icon.png"
-          />
           العربية
         </DropdownMenuItem>
       </DropdownMenuContent>
