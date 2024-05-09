@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { SendIcon } from "lucide-react";
+import TypographyH1 from "@/components/typography/h1";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -52,59 +53,59 @@ export default function Contact() {
   }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 min-h-screen flex flex-col justify-center max-w-3xl mx-auto"
-      >
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Your name" {...field} />
-              </FormControl>
-              <FormDescription>Please enter your name.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className="min-h-screen flex flex-col justify-center max-w-3xl mx-auto">
+      <TypographyH1>Contact Us</TypographyH1>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your name" {...field} />
+                </FormControl>
+                <FormDescription>Please enter your name.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>email</FormLabel>
-              <FormControl>
-                <Input placeholder="Your email" {...field} />
-              </FormControl>
-              <FormDescription>Please enter your email.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>email</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your email" {...field} />
+                </FormControl>
+                <FormDescription>Please enter your email.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>message</FormLabel>
-              <FormControl>
-                <Textarea placeholder="Your message" {...field} />
-              </FormControl>
-              <FormDescription>Please enter your message.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button className="w-24 flex gap-2" type="submit">
-          Send <SendIcon size={16} />
-        </Button>
-      </form>
-    </Form>
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>message</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Your message" {...field} />
+                </FormControl>
+                <FormDescription>Please enter your message.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button className="w-24 flex gap-2" type="submit">
+            Send <SendIcon size={16} />
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }
