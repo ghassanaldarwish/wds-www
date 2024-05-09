@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import useTextDirection from "@/hooks/useTextDirection";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Toaster } from "@/components/ui/sonner";
+import BASE_URL from "@/config/url";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -15,11 +16,11 @@ const fontSans = FontSans({
 });
 
 const siteMetadata = {
-  siteUrl: process.env.NEXT_PUBLIC_BASE_URL,
+  siteUrl: BASE_URL,
   title: "Webdrei",
   description:
     "We focus on problem-solving strategies before technology selection.",
-  ogUrl: new URL("/api/og", process.env.NEXT_PUBLIC_BASE_URL),
+  ogUrl: new URL("/api/og", BASE_URL),
 };
 
 export const metadata: Metadata = {
